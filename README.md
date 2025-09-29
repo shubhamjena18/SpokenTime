@@ -1,47 +1,44 @@
-# 🕒 Spoken Time API
+# Spoken Time Service
 
-A **Spring Boot REST API** that converts digital time into **natural spoken English**.  
+A Java-based application that converts time input into its **British spoken form** (e.g., '12:00' → 'noon'). 
+## Features
 
----
+- Convert 24-hour time format into British spoken words.
+- Handles special times like `noon` and `midnight`.
+- Uses Redis for caching frequent time conversions.
+- Modular design using common design patterns for clean code.
 
-## ✨ Features
+## Technologies Used
 
-- Convert 24-hour digital time into spoken English phrases  
-- Special case handling: **midnight** and **noon**  
-- Common expressions like **“quarter past”**, **“half past”**, **“quarter to”**  
-- Redis integration for caching  
-- Configurable via `application.yml`  
-- REST API + Docker support  
+- **Java** 21
+- **Spring Boot**
+- **Redis** (as cache)
+- **Maven** (for dependency management)
+- **Docker** (containerized deployment)
 
----
+## Architecture & Design Patterns
 
-## 🛠️ Tech Stack
+- **Singleton** – for Redis cache configuration.
+- **Factory / Strategy** – for time-to-word conversion logic.
+- **Caching** – Redis is used to store previously computed results to reduce computation time.
 
-- **Java 21**  
-- **Spring Boot**  
-- **Spring Web** (REST API)  
-- **Redis** (for caching)  
-- **Maven** (build tool)  
-- **Docker & Docker Compose**  
+## Prerequisites
 
----
+- Java 21
+- Maven installed
+- Docker & Docker Compose (optional, for running Redis and the service together)
 
+## Running Locally
 
----
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd <project-folder>
 
-## 🚀 Getting Started
+## Running with Docker
 
-### Prerequisites
-- Docker and Docker Compose installed  
-- (Optional) Java 21 and Maven if running outside Docker  
+Make sure Docker and Docker Compose are installed.
 
----
+Run the project and Redis using Docker Compose:
 
-### 🔹 Run with Docker Compose
-
-Build and start the services (Redis + API):
-
-```bash
 docker-compose up --build
-
-
